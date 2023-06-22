@@ -1,14 +1,46 @@
-<meta charset="utf-8" />
-<script>
-    // Elaborar um programa para um estacionamento. O programa deve ler o valor para cada hora que o veículo ficará estacionado e o tempo que a pessoa utilizou em minutos. Informe o valor a ser pago pelo cliente, sabendo que as frações de hora devem ser cobradas de forma integral.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estacionamento</title>
+</head>
+<body>
+    <h1>
+        Programa Estacionamento
+    </h1>
 
-    //ENTRADA
+    <p>
+        Valor por hora:
+        <input type="text" name="inHora" id="inHora"/>
+    </p>
 
+    <p>Tempo estacionado em minutos:
+        <input type="text" name="inTempoMin" id="inTempoMin"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver valor a ser pago" name="btValorPago" id="btValorPago"/>
+    </p>
+
+    <h3 id="outValorPago"></h3>
+
+    <script>
+        // Elaborar um programa para um estacionamento. O programa deve ler o valor para cada hora que o veículo ficará estacionado e o tempo que a pessoa utilizou em minutos. Informe o valor a ser pago pelo cliente, sabendo que as frações de hora devem ser cobradas de forma integral.
     
-    //PROCESSAMENTO
-
-
-    //SAÍDA
-
-
-</script>
+        //ENTRADA
+        function valorPago() {
+            let inHora = document.getElementById("inHora").value.replace("," , ".")*1;
+            let inTempoMin = document.getElementById("inTempoMin").value.replace("," , ".")*1;
+        //PROCESSAMENTO
+        const calculoEstacionamento = inHora * (Math.ceil(inTempoMin / 60));
+    
+        document.getElementById("outValorPago").textContent = `O valor a ser pago será de: R$${calculoEstacionamento.toFixed(2).replace("." , ",")}`;
+        }
+        //SAÍDA
+        let btValorPago = document.getElementById("btValorPago");
+        btValorPago.addEventListener("click", valorPago);
+    </script>
+</body>
+</html>

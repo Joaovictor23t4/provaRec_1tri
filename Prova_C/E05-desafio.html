@@ -1,19 +1,57 @@
-<script>
-    /*
-    PROBLEMA
-    Considere o seguinte cenário:
-    Uma loja de carros usados paga aos vendedores um salário fixo por mês, além de comissão para cada carro vendido, no valor de R$ 300,00. Também, sobre o valor total vendido, o funcionário receberá outros 5% de comissão.
-    Faça um script que receba o salário fixo pago por mês, a quantidade de carros vendidos, e também o valor total dos carros vendidos pelo funcionário.
-    Calcule e escreva o salário final do vendedor, aplicando desconto de 27%, referente ao imposto de renda.
-    */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<body>
+    <h1>Programa Salário Vendedor de Carros</h1>
 
-    //ENTRADA
+    <p>
+        Salário Fixo:
+        <input type="text" name="inSalarioFixo" id="inSalarioFixo"/>
+    </p>
 
+    <p>
+        Quantidade de Carros Vendidos:
+        <input type="text" name="inQtdCarros" id="inQtdCarros"/>
+    </p>
 
-    //PROCESSAMENTO
+    <p>
+        Valor Total dos Carros Vendidos:
+        <input type="text" name="inValorCarrosVendidos" id="inValorCarrosVendidos"/>
+    </p>
 
+    <p>
+        <input type="button" value="Ver Salário Final" name="btSalarioFinal" id="btSalarioFinal"/>
+    </p>
 
-    //SAÍDA
+    <h3 id="outSalarioFinal"></h3>
 
+    <script>
+        /*
+        PROBLEMA
+        Considere o seguinte cenário:
+        Uma loja de carros usados paga aos vendedores um salário fixo por mês, além de comissão para cada carro vendido, no valor de R$ 300,00. Também, sobre o valor total vendido, o funcionário receberá outros 5% de comissão.
+        Faça um script que receba o salário fixo pago por mês, a quantidade de carros vendidos, e também o valor total dos carros vendidos pelo funcionário.
+        Calcule e escreva o salário final do vendedor, aplicando desconto de 27%, referente ao imposto de renda.
+        */
+    
+        //ENTRADA
+        function calcularSalarioFinal() {
+            let inSalarioFixo = document.getElementById("inSalarioFixo").value.replace("," , ".")*1;
+            let inQtdCarros = document.getElementById("inQtdCarros").value*1;
+            let inValorCarrosVendidos = document.getElementById("inValorCarrosVendidos").value.replace("," , ".")*1;
+        //PROCESSAMENTO
+        const calculo = inSalarioFixo + (inQtdCarros * 300) + (inValorCarrosVendidos * 0.05);
 
-</script>
+        document.getElementById("outSalarioFinal").textContent = `Seu salário final será de: R$${calculo.toFixed(2).replace("." , ",")}`
+        }
+        //SAÍDA
+        let btSalarioFinal = document.getElementById("btSalarioFinal");
+        btSalarioFinal.addEventListener("click", calcularSalarioFinal);
+    </script>
+</body>
+</html>

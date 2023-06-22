@@ -1,13 +1,47 @@
-<meta charset="utf-8" />
-<script>
-    //Elaborar um programa que pergunte ao usuário quantas horas e quantos minutos de duração a viagem possui. Calcule e informe a duração total da viagem em número de minutos.
-    
-    //ENTRADA
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagem</title>
+</head>
+<body>
+    <h1>
+        Programa Viagem Minutos
+    </h1>
 
+    <p>
+        Horas:
+        <input type="text" name="inViagemHoras" id="inViagemHoras"/>
+    </p>
 
-    //PROCESSAMENTO
+    <p>
+        Minutos:
+        <input type="text" name="inViagemMinutos" id="inViagemMinutos"/>
+    </p>
 
+    <p>
+        <input type="button" value="Ver viagem em minutos" name="btViagem" id="btViagem"/>
+    </p>
 
-    //SAÍDA
-    
-</script>
+    <h3 id="outTempoViagem"></h3>
+
+    <script>
+        //Elaborar um programa que pergunte ao usuário quantas horas e quantos minutos de duração a viagem possui. Calcule e informe a duração total da viagem em número de minutos.
+        
+        //ENTRADA
+        function viagemTempo() {
+            let inViagemHoras = document.getElementById("inViagemHoras").value.replace("," , ".")*1;
+            let inViagemMinutos = document.getElementById("inViagemMinutos").value.replace("," , ".")*1;
+        //PROCESSAMENTO
+        const calculoTempo = (inViagemHoras * 60) + inViagemMinutos;
+
+        document.getElementById("outTempoViagem").textContent = `A viagem possui um tempo de ${calculoTempo} minutos`;
+        }
+        //SAÍDA
+        let btViagem = document.getElementById("btViagem");
+        btViagem.addEventListener("click", viagemTempo);
+    </script>
+</body>
+</html>

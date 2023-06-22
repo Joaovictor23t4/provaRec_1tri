@@ -1,14 +1,46 @@
-<meta charset="utf-8" />
-<script>
-    // Você foi encarregado de realizar uma pesquisa sobre uso de streaming. A sua pesquisa deverá apresentar o percentual de pessoas que utilizam algum serviço de streaming. Para isso, elabore um algoritmo que leia o número total de pessoas abordadas e o número de pessoas que possuem acesso a qualquer serviço de streaming. Por fim, com base nestes dados, escreva o percentual de funcionários com acesso a internet.
-    // Por exemplo, entre 80 pessoas abordadas, apenas 20 possuem acesso à algum serviço de streaming, o que equivale a 25% destas 80 pessoas abordadas.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentual Streaming</title>
+</head>
+<body>
+    <h1>Programa Percentual Streaming</h1>
 
-    //ENTRADA
+    <p>
+        Número total de pessoas abordadas:
+        <input type="text" name="inTotalPessoas" id="inTotalPessoas"/>
+    </p>
 
+    <p>
+        Número de pessoas que assinam algum serviço de streaming:
+        <input type="text" name="inPessoasStreaming" id="inPessoasStreaming"/>
+    </p>
 
-    //PROCESSAMENTO
+    <p>
+        <input type="button" value="Ver Percentual" name="btPercentual" id="btPercentual"/>
+    </p>
+
+    <h3 id="outPercentualPessoas"></h3>
+
+    <script>
+        // Você foi encarregado de realizar uma pesquisa sobre uso de streaming. A sua pesquisa deverá apresentar o percentual de pessoas que utilizam algum serviço de streaming. Para isso, elabore um algoritmo que leia o número total de pessoas abordadas e o número de pessoas que possuem acesso a qualquer serviço de streaming. Por fim, com base nestes dados, escreva o percentual de funcionários com acesso a internet.
+        // Por exemplo, entre 80 pessoas abordadas, apenas 20 possuem acesso à algum serviço de streaming, o que equivale a 25% destas 80 pessoas abordadas.
     
+        //ENTRADA
+        function calcularPercentual() {
+            let inTotalPessoas = document.getElementById("inTotalPessoas").value*1;
+            let inPessoasStreaming = document.getElementById("inPessoasStreaming").value*1;
+        //PROCESSAMENTO
+        const porcentagemCalculo = (inPessoasStreaming * 100) / inTotalPessoas;
 
-    //SAÍDA
-
-</script>
+        document.getElementById("outPercentualPessoas").textContent = `O percentual de pessoas que assinam um streaming é de ${porcentagemCalculo.toFixed(1).replace("." , ",")}%`;
+        }
+        //SAÍDA
+        let btPercentual = document.getElementById("btPercentual");
+        btPercentual.addEventListener("click", calcularPercentual);
+    </script>
+</body>
+</html>

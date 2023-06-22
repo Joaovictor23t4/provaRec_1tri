@@ -1,15 +1,40 @@
-<meta charset="utf-8" />
-<script>
-    // Considere que o preço final de um celular é a soma do custo de fábrica, o imposto de importação (40%) e logística de distribuição (12%), ambos aplicados sobre o custo de fábrica.
-    // Faça um script que leia o custo de fábrica do celular e calcule os custos adicionais, apresentando o custo final do celular ao comprador.
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valor Celular</title>
+</head>
+<body>
+    <h1>Programa Valor do Celular</h1>
 
-    //ENTRADA
+    <p>
+        Custo de Fábrica:
+        <input type="text" name="inCustoFabrica" id="inCustoFabrica"/>
+    </p>
 
+    <p>
+        <input type="button" value="Ver Preço Final" name="btValorFinal" id="btValorFinal"/>
+    </p>
+
+    <h3 id="outCelular"></h3>
+
+    <script>
+        // Considere que o preço final de um celular é a soma do custo de fábrica, o imposto de importação (40%) e logística de distribuição (12%), ambos aplicados sobre o custo de fábrica.
+        // Faça um script que leia o custo de fábrica do celular e calcule os custos adicionais, apresentando o custo final do celular ao comprador.
     
-    //PROCESSAMENTO
+        //ENTRADA
+        function calculePrecoFinal() {
+            let inCustoFabrica = document.getElementById("inCustoFabrica").value.replace("," , ".")*1;    
+        //PROCESSAMENTO
+        const somaCustos = inCustoFabrica + (inCustoFabrica * 0.4) + (inCustoFabrica * 0.12);
 
-
-    //SAÍDA
-
-
-</script>
+        document.getElementById("outCelular").textContent = `O preço final do celular será de: R$${somaCustos.toFixed(2).replace("." , ",")}`
+        }
+        //SAÍDA
+        let btValorFinal = document.getElementById("btValorFinal");
+        btValorFinal.addEventListener("click", calculePrecoFinal);
+    </script>
+</body>
+</html>
